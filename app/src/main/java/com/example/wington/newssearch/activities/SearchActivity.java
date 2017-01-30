@@ -64,11 +64,11 @@ public class SearchActivity extends AppCompatActivity {
                 //create an intent to display the article
                 Intent i = new Intent(getApplicationContext(), ArticleActivity.class);
 
-                //get the article to dsiplay
+                //get the article to display
                 Article article = articles.get(position);
                 //pass in that article into intent
-                i.putExtra("url",article.getWebUrl());
-                startActivity(i);;
+                i.putExtra("article", article);
+                startActivity(i);
                 //
             }
         });

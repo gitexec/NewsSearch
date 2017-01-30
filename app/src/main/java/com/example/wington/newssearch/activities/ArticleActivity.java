@@ -6,6 +6,7 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.example.wington.newssearch.Article;
 import com.example.wington.newssearch.R;
 
 public class ArticleActivity extends AppCompatActivity {
@@ -15,7 +16,7 @@ public class ArticleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article);
 
-        String url = getIntent().getStringExtra("url");
+        Article article = (Article) getIntent().getSerializableExtra("article");
 
         WebView webView = (WebView) findViewById(R.id.wvArticle);
         webView.setWebViewClient(new WebViewClient(){
@@ -25,6 +26,6 @@ public class ArticleActivity extends AppCompatActivity {
                 return  true;
             }
         });
-        webView.loadUrl(url);
+        webView.loadUrl(article.getWebUrl());
     }
 }
